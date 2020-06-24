@@ -1,13 +1,10 @@
 import {app} from "./app";
 import {logger} from "./lib/framework/logger";
+import {Server} from "./lib/framework/server";
 
-const PORT = process.env.NODE_PORT || 3000;
+const PORT: number = <number><unknown>process.env.NODE_PORT || 3000;
 
-const start = async () => {
-    app.listen(PORT, () => {
-        logger.info(`App listening on port ${PORT}`);
-    });
-};
+const server = new Server(app, PORT);
 
 // noinspection JSIgnoredPromiseFromCall
-start();
+server.start();
