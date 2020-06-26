@@ -35,6 +35,7 @@ server.registerStartupHook(() => {
         } else {
             logger.info("A .env file does not exist. Environment variables must be loaded from somewhere else.");
         }
+        return resolve(true);
     });
 });
 
